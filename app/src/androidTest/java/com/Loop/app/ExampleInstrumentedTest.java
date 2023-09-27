@@ -1,4 +1,4 @@
-package com.Loop.app;
+package com.loop.app;
 
 import android.content.Context;
 
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
     public void useAppContext() {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
-        assertEquals("com.Loop.app", appContext.getPackageName());
+        assertEquals("com.loop.app", appContext.getPackageName());
     }
 }

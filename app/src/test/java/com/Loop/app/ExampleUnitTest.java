@@ -1,4 +1,4 @@
-package com.Loop.app;
+package com.loop.app;
 
 import org.junit.Test;
 
