@@ -13,4 +13,7 @@
     <string name="name">Name</string>
     <string name="cofirm_password">Cofirm Password</string>
     <string name="sign_up">Sign up</string>
+    <string name="welcome_to_loop">Welcome to Loop!</string>
+    <string name="enter_otp">Enter OTP</string>
+    <string name="verify">Verify</string>
 </resources>

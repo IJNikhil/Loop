@@ -1,50 +1,61 @@
 package com.loop.app.activities;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.Toast;
 
-import com.google.common.hash.Hashing;
-import com.google.firebase.firestore.FirebaseFirestore;
-import com.loop.app.R;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.loop.app.databinding.ActivitySignInBinding;
-
-import java.util.HashMap;
 
 public class SignInActivity extends AppCompatActivity {
 
     private ActivitySignInBinding binding;
+    private FirebaseAuth mAuth;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onStart() {
+        super.onStart();
+        // Check if user is signed in (non-null) and update UI accordingly.
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+        if(currentUser != null){
+            currentUser.reload();
+        }
+    }
+
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivitySignInBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         setListener();
-
     }
 
     private void setListener() {
-        binding.buttonSignIn.setOnClickListener(v -> addDataToFirebase());
-        binding.textCreateNewAccount.setOnClickListener(v ->
-                startActivity(new Intent(getApplicationContext(), SignUpActivity.class)));
+        binding.textCreateNewAccount.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), SignUpActivity.class)));
+//        binding.buttonSignIn.setOnClickListener(v -> addDataToFirestore());
+        binding.buttonSignIn.setOnClickListener(v -> signInAction());
+    }
+    
 
+    private void signInAction() {
+        // Initialize Firebase Auth
+        mAuth = FirebaseAuth.getInstance();
     }
 
-    private void addDataToFirebase() {
-        FirebaseFirestore database = FirebaseFirestore.getInstance();
-        HashMap<String, Object>data = new HashMap<>();
-        data.put("First_name", "Vighnesh");
-        data.put("Last_name", "Badganchi");
-        database.collection("users")
-                .add(data)
-                .addOnSuccessListener(documentReference -> {
-                    Toast.makeText(getApplicationContext(), "Data Inserted", Toast.LENGTH_SHORT).show();
-                })
-                .addOnFailureListener(exception -> {
-                    Toast.makeText(getApplicationContext(), exception.getMessage(), Toast.LENGTH_SHORT).show();
-                });
-    }
+//    private void addDataToFirestore() {
+//        FirebaseFirestore db = FirebaseFirestore.getInstance();
+//        HashMap<String, Object> data = new HashMap<>();
+//        data.put("First_name", "Vighnesh");
+//        data.put("Last_name", "Badganchi");
+//
+//        db.collection("users")
+//                .add(data)
+//                .addOnSuccessListener(documentReference -> Toast.makeText(getApplicationContext(), "Data Inserted", Toast.LENGTH_SHORT).show())
+//                .addOnFailureListener(e -> Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_SHORT).show());
+//    }
+
+
 }
