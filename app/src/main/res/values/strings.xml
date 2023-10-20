@@ -16,4 +16,6 @@
     <string name="welcome_to_loop">Welcome to Loop!</string>
     <string name="enter_otp">Enter OTP</string>
     <string name="verify">Verify</string>
+    <string name="developed_by_loop_developer">Developed By Loop Developer\'s</string>
+    <string name="chat_icon">Chat_Icon</string>
 </resources>

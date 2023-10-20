@@ -15,7 +15,7 @@
         android:theme="@style/Theme.Loop"
         tools:targetApi="31">
         <activity
-            android:name=".activities.PhoneNumberAuthActivity"
+            android:name=".SplashActivity"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -23,29 +23,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-<!--        <activity-->
-<!--            android:name=".activities.LogInActivity"-->
-<!--            android:exported="false">-->
-<!--        </activity>-->
-        <activity
-            android:name=".activities.SignUpActivity"
-            android:exported="false"
-            android:windowSoftInputMode="adjustResize" />
-        <activity
-            android:name=".activities.SignInActivity"
-            android:exported="false"
-            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".MainActivity"
-            android:exported="true" />
-
-        <service
-            android:name=".firebase.MessagingService"
             android:exported="false">
-            <intent-filter>
-                <action android:name="com.google.firebase.MESSAGING_EVENT" />
-            </intent-filter>
-        </service>
+        </activity>
     </application>
 
 </manifest>
