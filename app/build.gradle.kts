@@ -56,4 +56,8 @@ dependencies {
 
     //Multidex
     implementation("androidx.multidex:multidex:2.0.1")
+
+    // Country Code Picker
+
+    implementation ("com.hbb20:ccp:2.7.1")
 }
