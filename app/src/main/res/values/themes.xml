@@ -1,0 +1,41 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.Loop" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <!-- Customize your light theme here. -->
+<!--        Primary Color -->
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryVariant">@color/primary</item>
+        <item name="colorOnPrimary">@color/white</item>
+
+<!--        Secondary Color -->
+        <item name="colorSecondary">@color/secondary</item>
+        <item name="colorSecondaryVariant">@color/secondary</item>
+        <item name="colorOnSecondary">@color/black</item>
+
+        <item name="android:statusBarColor" tools:targetApi="l">@color/primary</item>
+        <item name="android:windowBackground">@color/off_white</item>
+    </style>
+
+<!--    <style name="ChatTheme" parent="AppTheme">-->
+<!--        <item name="chat_color_sender">@color/chat_color_sender</item>-->
+<!--        <item name="chat_color_receiver">@color/chat_color_receiver</item>-->
+<!--    </style>-->
+
+    <style name="Theme.Loop" parent="Base.Theme.Loop" />
+
+
+
+
+
+<!--    <style name="AppTheme" parent="Theme.MaterialComponents.Dark.NoActionBar">-->
+<!--        <item name="colorPrimary">@color/primary</item>-->
+<!--        <item name="colorPrimaryDark">@color/primary_dark</item>-->
+<!--        <item name="colorAccent">@color/primary</item>-->
+<!--        <item name="android:windowBackground">@color/black</item>-->
+<!--        <item name="android:textColorPrimary">@color/primary_text</item>-->
+<!--        <item name="android:textColorSecondary">@color/secondary_text</item>-->
+<!--    </style>-->
+
+
+</resources>

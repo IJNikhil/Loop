@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">Loop</string>
+    <string name="login">Login</string>
+    <string name="password">Password</string>
+    <string name="register">Register</string>
+    <string name="authentication">Authentication</string>
+    <string name="username">Username</string>
+    <string name="welcome_back">Welcome Back!</string>
+    <string name="login_to_continue">Login to continue</string>
+    <string name="email">Email</string>
+    <string name="create_new_account">Create New Account</string>
+    <string name="sign_in">Sign in</string>
+    <string name="name">Name</string>
+    <string name="cofirm_password">Cofirm Password</string>
+    <string name="sign_up">Sign up</string>
+    <string name="welcome_to_loop">Welcome to Loop!</string>
+    <string name="enter_otp">Enter OTP</string>
+    <string name="verify">Verify</string>
+    <string name="developed_by_loop_developer">Developed By Loop Developer\'s</string>
+    <string name="chat_icon">Chat_Icon</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
