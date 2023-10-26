@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/frag_bg"
+    android:orientation="vertical"
+    android:gravity="center_vertical"
+    tools:context=".LoginOtpActivity">
+
+    <TextView
+        android:id="@+id/number_textview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:fontFamily="@font/source_sans3_bold"
+        android:letterSpacing="0.08"
+        android:layout_marginHorizontal="30dp"
+        android:text="@string/enter_otp"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        tools:ignore="RtlSymmetry" />
+
+    <EditText
+        android:id="@+id/login_otp"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginHorizontal="30dp"
+        android:background="@drawable/input_border"
+        android:fontFamily="@font/source_sans3_bold"
+        android:hint="@string/otp"
+        android:inputType="number"
+        android:maxLength="6"
+        android:layout_marginVertical="20dp"
+        android:paddingStart="15dp"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        android:textSize="20sp"
+        tools:ignore="RtlSymmetry,VisualLintTextFieldSize"
+        android:importantForAutofill="no" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/login_next_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="60dp"
+        android:layout_marginVertical="20dp"
+        android:background="@drawable/std_btn"
+        android:gravity="center"
+        android:text="@string/verify_otp"
+        android:textSize="16sp"
+        tools:ignore="VisualLintButtonSize" />
+
+    <TextView
+        android:id="@+id/resend_otp_textview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:fontFamily="@font/source_sans3_bold"
+        android:gravity="center"
+        android:letterSpacing="0.08"
+        android:text="@string/resend_otp_in_30_seconds"
+        android:textColor="@color/white"
+        android:textColorHint="@color/material_blue_grey_80"
+        android:textSize="12sp" />
+
+    <ProgressBar
+        android:id="@+id/login_progress_bar"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="15dp"
+        android:indeterminateTint="@color/teal_200" />
+
+</LinearLayout>

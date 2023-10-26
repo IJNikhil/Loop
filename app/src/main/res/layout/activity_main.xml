@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    tools:context=".MainActivity"
+    android:layout_centerVertical="true">
+
+
+    <ImageView
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_above="@+id/splashtag"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:src="@drawable/logo" />
+
+    <TextView
+        android:id="@+id/splashtag"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/source_sans3_font"
+        android:gravity="center"
+        android:textColor="@color/tagline"
+        android:textSize="35dp"
+        android:text="Loop"
+        tools:ignore="MissingConstraints" />
+
+    <ProgressBar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/teal_200"
+        android:layout_marginTop="40dp"
+        android:layout_below="@+id/splashtag"/>
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="40dp"
+        android:fontFamily="@font/source_sans3_bold"
+        android:gravity="center"
+        android:lineHeight="20dp"
+        android:padding="20dp"
+        android:text="By\n Loop Developer's"
+        android:textAlignment="center"
+        android:textColor="@color/tagline"
+        android:textSize="15dp"
+        tools:ignore="MissingConstraints" />
+
+
+</RelativeLayout>

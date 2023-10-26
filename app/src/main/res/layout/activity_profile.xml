@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ProfileActivity"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="@color/frag_bg"
+    android:padding="20dp">
+
+    <ImageView
+        android:id="@+id/profile_image_view"
+        android:layout_width="160dp"
+        android:layout_height="160dp"
+        android:background="@drawable/input_border"
+        android:backgroundTint="@color/frag_bg_light"
+        android:src="@drawable/person_filled"
+        android:scaleType="centerCrop"
+        android:layout_marginBottom="40dp"/>
+
+    <EditText
+        android:id="@+id/profile_username"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:paddingHorizontal="20dp"
+        android:background="@drawable/input_border"
+        android:elevation="5dp"
+        android:textColor="@color/white"
+        android:text="XYZ"
+        android:hint="Username"
+        android:inputType="text"
+        android:minHeight="48dp" />
+
+    <TextView
+        android:id="@+id/profile_phone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:paddingHorizontal="20dp"
+        android:paddingVertical="15dp"
+        android:background="@drawable/input_border"
+        android:elevation="5dp"
+        android:textColor="@color/white"
+        android:text="dtfhgbjml"
+        android:minHeight="48dp"
+        android:enabled="false"/>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginVertical="15dp"
+        android:gravity="center_horizontal">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/profile_update_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="20dp"
+            android:background="@drawable/std_btn"
+            android:text="Update profile"
+            android:textSize="16sp"
+            tools:ignore="MissingConstraints,VisualLintButtonSize"
+            android:layout_marginHorizontal="60dp"/>
+
+        <TextView
+            android:id="@+id/logout_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Logout"
+            android:textColor="@color/white"
+            />
+
+        <ProgressBar
+            android:id="@+id/profile_progress_bar"
+            android:layout_width="32dp"
+            android:layout_height="wrap_content"
+            android:indeterminateTint="@color/teal_200"/>
+    </LinearLayout>
+
+
+</LinearLayout>

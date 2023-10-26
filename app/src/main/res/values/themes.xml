@@ -1,0 +1,17 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.Loop" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+
+        <!--        Primary Color-->
+        <item name="colorPrimary">@color/background</item>
+        <item name="colorPrimaryDark">@color/actionbar</item>
+        <item name="colorAccent">@color/teal_200</item>
+
+        <item name="fontFamily">@font/source_sans3_font</item>
+    </style>
+
+    <style name="Theme.Loop" parent="Base.Theme.Loop" />
+
+</resources>

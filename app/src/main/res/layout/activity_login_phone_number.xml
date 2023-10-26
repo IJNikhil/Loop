@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/frag_bg"
+    android:orientation="vertical"
+    android:gravity="center_vertical"
+    tools:context=".LoginPhoneNumberActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:fontFamily="@font/source_sans3_bold"
+        android:letterSpacing="0.08"
+        android:paddingStart="30dp"
+        android:text="@string/enter_mobile_number"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        tools:ignore="MissingConstraints,RtlSymmetry" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:elevation="5dp"
+        android:gravity="center"
+        android:paddingHorizontal="5dp"
+        android:paddingVertical="2dp"
+        tools:ignore="MissingConstraints"
+        android:background="@drawable/input_border"
+        android:layout_marginHorizontal="30dp"
+        android:layout_marginVertical="20dp">
+
+
+        <com.hbb20.CountryCodePicker
+            android:id="@+id/ccp"
+            app:ccpDialog_textColor="@color/white"
+            app:ccpDialog_backgroundColor="@color/frag_bg_light"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:ccp_showArrow="true"
+            app:ccp_showFlag="false"
+            app:ccp_showNameCode="false"
+            android:layout_margin="5dp"
+            app:ccp_contentColor="@color/white"
+            app:ccp_areaCodeDetectedCountry="true"
+            app:ccp_textSize="20sp"
+            app:ccpDialog_fastScroller_bubbleTextAppearance="@color/white" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/login_mobile_number"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:fontFamily="@font/source_sans3_bold"
+            android:hint="@string/phone"
+            android:inputType="phone"
+            android:textSize="20sp"
+            android:paddingStart="15dp"
+            android:textColor="@color/tagline"
+            android:textColorHint="@color/white"
+            tools:ignore="MissingConstraints,RtlSymmetry,VisualLintTextFieldSize"
+            android:background="?attr/selectableItemBackgroundBorderless"/>
+
+    </LinearLayout>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/send_otp_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/std_btn"
+        android:text="@string/send_otp"
+        android:textSize="16sp"
+        tools:ignore="MissingConstraints,VisualLintButtonSize"
+        android:layout_marginHorizontal="60dp"/>
+
+    <ProgressBar
+        android:id="@+id/login_progress_bar"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_gravity="center"
+        android:indeterminateTint="@color/teal_200"
+        tools:ignore="MissingConstraints"
+        android:layout_marginVertical="20dp"/>
+
+</LinearLayout>
