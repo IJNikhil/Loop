@@ -17,10 +17,22 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    signingConfigs {
+        release {
+            storeFile file('D:\\Nikhil\\GIT\\user\\keystore\\loop-keystore1.jks')
+            storePassword 'Nikhil@8446'
+            keyPassword 'LoopKey@1'
+            keyAlias 'key0'
+        }
+    }
+
+
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+            multiDexEnabled true
         }
     }
     compileOptions {
@@ -52,7 +64,7 @@ dependencies {
 //    implementation 'com.google.firebase:firebase-messaging-ktx:23.3.0'
     implementation 'com.google.firebase:firebase-messaging:23.3.0'
     implementation 'com.google.firebase:firebase-firestore:24.9.0'
-    implementation 'com.google.firebase:firebase-auth:22.1.2'
+    implementation 'com.google.firebase:firebase-auth:22.2.0'
     implementation  'com.firebaseui:firebase-ui-firestore:8.0.2'
     implementation 'com.google.firebase:firebase-storage:20.3.0'
 

@@ -98,7 +98,8 @@
 
         <com.hbb20.CountryCodePicker
             android:id="@+id/ccp"
-            app:ccpDialog_textColor="@color/white"
+            app:ccpDialog_textColor="@color/off_white"
+            app:ccpDialog_backgroundColor="@color/black"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:ccp_showArrow="true"
@@ -106,7 +107,8 @@
             app:ccp_showNameCode="false"
             android:layout_margin="5dp"
             app:ccp_contentColor="@color/white"
-            />
+            app:ccp_areaCodeDetectedCountry="true"
+            app:ccpDialog_fastScroller_bubbleTextAppearance="@color/off_white" />
 
         <EditText
             android:id="@+id/login_mobile_number"
@@ -117,7 +119,7 @@
             android:textColorHint="@color/light_grey"
             android:textColor="@color/white"
             android:textSize="20sp"
-            android:inputType="text"
+            android:inputType="number"
             android:minHeight="48dp"
             android:padding="10dp"
             android:elevation="5dp"

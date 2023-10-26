@@ -18,8 +18,12 @@
     <color name="light_grey" >#C3C3C3</color>
 
     <color name="chat_color_sender" >#4E7A1F</color>
-    <color name="chat_color_receiver" >#fcfcfc</color>chat_color_receiver
+    <color name="chat_color_receiver" >#CCCCC1</color>
     <color name="bright_blue" >#0096FF</color>
     <color name="light_purple" >#E6E6FA</color>
+
+
+    <color name="tagline">#FFFFFF</color>
+    <color name="teal_200">#FF03DAC5</color>
 
 </resources>
