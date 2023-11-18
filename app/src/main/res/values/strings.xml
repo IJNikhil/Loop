@@ -10,4 +10,11 @@
     <string name="verify_otp">Verify OTP</string>
     <string name="resend_otp_in_30_seconds">Resend OTP in 30 seconds</string>
     <string name="search">Search</string>
+    <string name="developed_by">developed\\nBy\\nLoopDevelopers</string>
+
+
+    <string name="ek_img_content">Loop Image</string>
+    <string name="enter_username">Enter Username</string>
+    <string name="let_me_in">Let me in</string>
+    <string name="username">Username</string>
 </resources>

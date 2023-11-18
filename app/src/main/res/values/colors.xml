@@ -1,32 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <color name="purple_200">#FFBB86FC</color>
-    <color name="purple_700">#FF3700B3</color>
-    <color name="teal_200">#FF03DAC5</color>
+    <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="coors_blue">#0000EE</color>
+    <color name="coors_silver">#C0C0C0</color>
+    <color name="coors_gold">#D4AF37</color>
+    <color name="chat_color_receiver">#BDBDBB</color>
+    <color name="chat_color_sender">#409709</color>
 
+<!--&lt;!&ndash;    Figma&ndash;&gt;-->
+<!--    <color name="colorPrimary">#008577</color>-->
+<!--    <color name="colorPrimaryDark">#00574B</color>-->
+<!--    <color name="colorAccent">#D81B60</color>-->
+<!--    <color name="purple_200">#FFBB86FC</color>-->
+<!--    <color name="purple_500">#FF6200EE</color>-->
+<!--    <color name="purple_700">#FF3700B3</color>-->
+<!--    <color name="teal_200">#FF03DAC5</color>-->
+<!--    <color name="teal_700">#FF018786</color>-->
+<!--    <color name="black">#1C1B1B</color>-->
+<!--    <color name="white">#FFFFFFFF</color>-->
 
-    <!--    app color-->
-    <color name="background">#141414</color>
-    <color name="actionbar">#121212</color>
-    <color name="pink_100">#C65EB6</color>
-
-    <color name="frag_bg">#212020</color>
-    <color name="frag_bg_light">#333232</color>
-
-    <!--    Font Color-->
-    <color name="tagline">#FFFFFF</color>
-
-    <!--    input text outline-->
-    <color name="outline_deactive">#827F7F</color>
-
-    <color name="inputbg">#212121</color>
-
-    <color name="obj_p">#CBF1F5</color>
-
-
-    <color name="chat_color_sender" >#46912B</color>
-    <color name="chat_color_receiver" >#CCCCC1</color>
+<!--    <color name="_bg__activitymaindark_color">#1C1B1B</color>-->
+<!--    <color name="loop_color">#FAF8F8</color>-->
+<!--    <color name="developed_by_loop_developers_color">#F8F8F8</color>-->
 
 
 </resources>

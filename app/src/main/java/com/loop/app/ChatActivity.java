@@ -1,11 +1,14 @@
 package com.loop.app;
 
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.activity.OnBackPressedCallback;
+import androidx.activity.OnBackPressedDispatcher;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -72,9 +75,8 @@ public class ChatActivity extends AppCompatActivity {
 
         backBtn.setOnClickListener(view -> onBackPressed());
 
-
-
         otherUsername.setText(otherUser.getUsername());
+
         sendMsgBtn.setOnClickListener(view -> {
             String message = msgInput.getText().toString().trim();
             if (message.isEmpty()) {

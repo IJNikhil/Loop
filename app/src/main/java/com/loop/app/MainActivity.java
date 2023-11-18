@@ -24,32 +24,15 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        // Check if the user has already granted the READ_MEDIA_IMAGES permission
-//        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.READ_MEDIA_IMAGES) != PackageManager.PERMISSION_GRANTED) {
-//            // Request the READ_MEDIA_IMAGES permission from the user
-//            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_MEDIA_IMAGES}, 1);
-//        }
-
         setContentView(R.layout.activity_main);
 
-        initUi();
-
-//        new Handler().postDelayed(() -> {
-//            Intent intent = new Intent(MainActivity.this, LoginPhoneNumberActivity.class);
-//            startActivity(intent);
-//            finish();
-//            Toast.makeText(splashTag.getContext(), "Completed", Toast.LENGTH_SHORT).show();
-//        }, 1100);
-
-
-
+        splashTag = findViewById(R.id.splashtag);
 
         if (FirebaseUtil.isLoggedIn() && getIntent().getExtras() != null) {
 //            from Notification
             String userId = getIntent().getExtras().getString("userId");
             FirebaseUtil.allUserCollectionReference().document().get().addOnCompleteListener(task -> {
                 if (task.isSuccessful()) {
-
                     UserModel model = task.getResult().toObject(UserModel.class);
                     Intent mainIntent = new Intent(this, DashBoard.class);
                     mainIntent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
@@ -65,16 +48,13 @@ public class MainActivity extends AppCompatActivity {
             } );
 
         } else {
-            new Handler().postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    if (FirebaseUtil.isLoggedIn()) {
-                        startActivity(new Intent(MainActivity.this, DashBoard.class));
-                    } else {
-                        startActivity(new Intent(MainActivity.this, LoginPhoneNumberActivity.class));
-                    }
-                    finish();
+            new Handler().postDelayed(() -> {
+                if (FirebaseUtil.isLoggedIn()) {
+                    startActivity(new Intent(MainActivity.this, DashBoard.class));
+                } else {
+                    startActivity(new Intent(MainActivity.this, LoginPhoneNumberActivity.class));
                 }
+                finish();
             }, 1000);
         }
 
@@ -82,9 +62,4 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-
-
-    private void initUi() {
-        splashTag = findViewById(R.id.splashtag);
-    }
 }

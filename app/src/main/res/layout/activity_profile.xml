@@ -1,85 +1,114 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ProfileActivity"
-    android:orientation="vertical"
-    android:gravity="center"
-    android:background="@color/frag_bg"
-    android:padding="20dp">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ProfileActivity">
+
+    <com.google.android.material.progressindicator.LinearProgressIndicator
+        android:id="@+id/profileProgressBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:indeterminate="true"
+        android:indeterminateDuration="3000"
+        app:indicatorColor="@color/main_blue_color"
+        app:trackThickness="5dp" />
 
     <ImageView
-        android:id="@+id/profile_image_view"
-        android:layout_width="160dp"
-        android:layout_height="160dp"
-        android:background="@drawable/input_border"
-        android:backgroundTint="@color/frag_bg_light"
-        android:src="@drawable/person_filled"
-        android:scaleType="centerCrop"
-        android:layout_marginBottom="40dp"/>
-
-    <EditText
-        android:id="@+id/profile_username"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:paddingHorizontal="20dp"
-        android:background="@drawable/input_border"
-        android:elevation="5dp"
-        android:textColor="@color/white"
-        android:text="XYZ"
-        android:hint="Username"
-        android:inputType="text"
-        android:minHeight="48dp" />
-
-    <TextView
-        android:id="@+id/profile_phone"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:paddingHorizontal="20dp"
-        android:paddingVertical="15dp"
-        android:background="@drawable/input_border"
-        android:elevation="5dp"
-        android:textColor="@color/white"
-        android:text="dtfhgbjml"
-        android:minHeight="48dp"
-        android:enabled="false"/>
-
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:id="@+id/back_btn"
+        android:src="@drawable/back_arrow_white"
+        android:layout_marginTop="15dp"
+        android:layout_marginStart="15dp"
+        android:importantForAccessibility="no"
+        app:tint="@color/black" />
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:orientation="vertical"
-        android:layout_marginVertical="15dp"
-        android:gravity="center_horizontal">
+        android:gravity="center"
+        android:padding="20dp">
+        <ImageView
+            android:id="@+id/profile_image_view"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:background="@drawable/profilebg"
+            android:src="@drawable/person_filled"
+            android:scaleType="centerCrop"
+            android:layout_marginBottom="40dp"/>
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/profile_update_btn"
+        <EditText
+            style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+            android:id="@+id/profile_username"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginVertical="20dp"
-            android:background="@drawable/std_btn"
-            android:text="Update profile"
+            android:layout_marginHorizontal="10dp"
+            android:paddingHorizontal="20dp"
+            android:text="XYZ"
+            android:hint="Username"
+            android:inputType="text"
+            android:minHeight="48dp" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/profile_phone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:layout_marginHorizontal="30dp"
+            android:text="dtfhgbjml"
+            android:minHeight="48dp"
             android:textSize="16sp"
-            tools:ignore="MissingConstraints,VisualLintButtonSize"
-            android:layout_marginHorizontal="60dp"/>
+            android:enabled="false"/>
 
-        <TextView
-            android:id="@+id/logout_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Logout"
-            android:textColor="@color/white"
-            />
 
-        <ProgressBar
-            android:id="@+id/profile_progress_bar"
-            android:layout_width="32dp"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:indeterminateTint="@color/teal_200"/>
+            android:orientation="vertical"
+            android:layout_marginTop="20dp"
+            android:gravity="center_horizontal">
+
+            <com.google.android.material.button.MaterialButton
+                style="@style/TextAppearance.MaterialComponents.Button"
+                android:id="@+id/profile_update_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Update profile"
+                android:textSize="16sp"
+                android:layout_gravity="center_horizontal"/>
+
+            <com.google.android.material.button.MaterialButton
+                style="@style/Widget.Material3.Button.TextButton"
+                android:id="@+id/logout_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Logout"/>
+        </LinearLayout>
+
     </LinearLayout>
-
-
-</LinearLayout>
+<!--    <com.google.android.material.progressindicator.LinearProgressIndicator-->
+<!--        android:id="@+id/profileProgressBar"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layoutDirection="ltr"-->
+<!--        app:indicatorDirectionLinear="startToEnd"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_gravity="center_horizontal"-->
+<!--        app:trackColor="@color/material_blue_grey_90"-->
+<!--        tools:ignore="MissingConstraints"-->
+<!--        style="@style/Widget.MaterialComponents.LinearProgressIndicator"-->
+<!--        app:progress="0.5"/>-->
+<!--    <ProgressBar-->
+<!--        android:id="@+id/profileProgressBar"-->
+<!--        android:layout_width="200dp"-->
+<!--        android:layoutDirection="ltr"-->
+<!--        app:indicatorDirectionLinear="startToEnd"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_gravity="center_horizontal"-->
+<!--        app:trackColor="@color/material_blue_grey_90"-->
+<!--        tools:ignore="MissingConstraints"-->
+<!--        style="@style/Widget.MaterialComponents.LinearProgressIndicator"-->
+<!--        android:layout_marginVertical="20dp"/>-->
+</RelativeLayout>

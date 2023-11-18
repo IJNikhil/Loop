@@ -9,6 +9,7 @@ import android.widget.ProgressBar;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.material.progressindicator.LinearProgressIndicator;
 import com.hbb20.CountryCodePicker;
 
 public class LoginPhoneNumberActivity extends AppCompatActivity {
@@ -16,7 +17,7 @@ public class LoginPhoneNumberActivity extends AppCompatActivity {
     EditText phoneInput;
     CountryCodePicker ccp;
     Button sendOtpBtn;
-    ProgressBar progressBar;
+    private LinearProgressIndicator progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,7 +27,7 @@ public class LoginPhoneNumberActivity extends AppCompatActivity {
         ccp = findViewById(R.id.ccp);
         phoneInput = findViewById(R.id.login_mobile_number);
         sendOtpBtn = findViewById(R.id.send_otp_btn);
-        progressBar = findViewById(R.id.login_progress_bar);
+        progressBar = findViewById(R.id.loginPhoneProgressBar);
 
         ccp.registerCarrierNumberEditText(phoneInput);
 

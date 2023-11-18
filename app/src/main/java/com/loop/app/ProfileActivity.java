@@ -17,6 +17,7 @@ import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.material.progressindicator.LinearProgressIndicator;
 import com.google.firebase.messaging.FirebaseMessaging;
 import com.loop.app.model.UserModel;
 import com.loop.app.utils.AndroidUtil;
@@ -24,12 +25,13 @@ import com.loop.app.utils.FirebaseUtil;
 
 public class ProfileActivity extends AppCompatActivity {
 
+
     // Declare the views
-    ImageView profilePic;
+    ImageView profilePic, backBtn;
     EditText usernameInput;
     TextView phoneInput;
     Button updateProfileBtn;
-    ProgressBar progressBar;
+    private LinearProgressIndicator progressBar;
     TextView logoutBtn;
 
     // Declare the UserModel object
@@ -39,6 +41,7 @@ public class ProfileActivity extends AppCompatActivity {
 
     // Declare the ActivityResultLauncher
     ActivityResultLauncher<Intent> imagePickLauncher;
+    View screenView;
 
     public static final int REQUEST_CODE_PICK_IMAGE = 1;
 
@@ -52,12 +55,16 @@ public class ProfileActivity extends AppCompatActivity {
         usernameInput = findViewById(R.id.profile_username);
         phoneInput = findViewById(R.id.profile_phone);
         updateProfileBtn = findViewById(R.id.profile_update_btn);
-        progressBar = findViewById(R.id.profile_progress_bar);
+        progressBar = findViewById(R.id.profileProgressBar);
         logoutBtn = findViewById(R.id.logout_btn);
+        backBtn = findViewById(R.id.back_btn);
+
+        screenView = getWindow().getDecorView().getRootView();
 
         // Get the current user data
         getUserData();
 
+        backBtn.setOnClickListener(view -> {onBackPressed();});
 
         // Set the click listener for the update profile button
         updateProfileBtn.setOnClickListener(v -> updateBtnClick());
@@ -127,7 +134,7 @@ public class ProfileActivity extends AppCompatActivity {
                 } else {
                     // The image upload failed
                     setInProgress(false);
-                    AndroidUtil.showToast(getApplicationContext(), "Image upload failed");
+                    AndroidUtil.showToast(screenView, "Image upload failed");
                 }
             });
         } else {
@@ -142,9 +149,9 @@ public class ProfileActivity extends AppCompatActivity {
                     setInProgress(false);
 
                     if (task.isSuccessful()) {
-                        AndroidUtil.showToast(getApplicationContext(), "Updated successfully");
+                        AndroidUtil.showToast(screenView, "Updated successfully");
                     } else {
-                        AndroidUtil.showToast(getApplicationContext(), "Updated failed");
+                        AndroidUtil.showToast(screenView, "Updated failed");
                     }
                 } );
     }
@@ -178,7 +185,4 @@ public class ProfileActivity extends AppCompatActivity {
             updateProfileBtn.setVisibility(View.VISIBLE);
         }
     }
-
-
-
 }

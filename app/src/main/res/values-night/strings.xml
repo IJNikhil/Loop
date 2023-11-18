@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="developed_by">developed\\nBy\\nLoopDevelopers</string>
+    <string name="enter_username">Enter Username</string>
+    <string name="let_me_in">Let me in</string>
+    <string name="username">Username</string>
+</resources>

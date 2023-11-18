@@ -3,7 +3,6 @@ package com.loop.app;
 import android.os.Bundle;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -16,6 +15,8 @@ import com.loop.app.model.UserModel;
 import com.loop.app.utils.FirebaseUtil;
 
 public class SearchUserActivity extends AppCompatActivity {
+
+
     EditText searchInput;
     ImageView searchButton;
     ImageView backBtn;
@@ -54,6 +55,10 @@ public class SearchUserActivity extends AppCompatActivity {
 
 //        searchInput.onKey
     }
+
+
+
+
 
     void setupSearchRecyclerView(String searchTerm) {
 

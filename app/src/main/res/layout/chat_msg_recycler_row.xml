@@ -15,13 +15,12 @@
         android:layout_marginEnd="120dp"
         android:layout_marginStart="10dp"
         android:orientation="vertical">
-        <TextView
+        <com.google.android.material.textview.MaterialTextView
             android:id="@+id/left_chat_textview"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/source_sans3_bold"
-            android:textColor="@color/background"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            android:padding="2dp"/>
     </LinearLayout>
 
     <LinearLayout
@@ -32,17 +31,16 @@
         android:backgroundTint="@color/chat_color_sender"
         android:padding="8dp"
         android:layout_marginStart="120dp"
-        android:layout_marginEnd="10dp"
+        android:layout_marginEnd="20dp"
         android:orientation="vertical"
         android:layout_alignParentEnd="true">
 
-        <TextView
+        <com.google.android.material.textview.MaterialTextView
             android:id="@+id/right_chat_textview"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/source_sans3_extra_bold"
-            android:textColor="@color/white"
-            android:textSize="18sp" />
+            android:layout_height="match_parent"
+            android:textSize="18sp"
+            android:padding="2dp"/>
 
     </LinearLayout>
 

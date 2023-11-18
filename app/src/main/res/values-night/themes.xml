@@ -4,12 +4,5 @@
         <!-- Customize your dark theme here. -->
         <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
 
-
-<!--        Primary Color-->
-        <item name="colorPrimary">@color/background</item>
-        <item name="colorPrimaryDark">@color/actionbar</item>
-        <item name="colorAccent">@color/teal_200</item>
-
-
     </style>
 </resources>

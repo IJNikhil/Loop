@@ -1,62 +1,91 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/frag_bg"
-    android:orientation="vertical"
-    android:gravity="center_vertical"
     tools:context=".LoginUserNameActivity">
 
-    <TextView
+    <com.google.android.material.progressindicator.LinearProgressIndicator
+        android:id="@+id/loginUsernameProgressBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical"
-        android:fontFamily="@font/source_sans3_bold"
-        android:letterSpacing="0.08"
-        android:paddingStart="30dp"
-        android:text="Enter Username"
-        android:textColor="@color/white"
-        android:textSize="20sp"
-        tools:ignore="MissingConstraints" />
+        android:indeterminate="true"
+        android:indeterminateDuration="3000"
+        app:indicatorColor="@color/main_blue_color"
+        app:trackThickness="5dp" />
 
-
-    <androidx.appcompat.widget.AppCompatEditText
-        android:id="@+id/login_username"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_marginHorizontal="30dp"
-        android:background="@drawable/input_border"
-        android:fontFamily="@font/source_sans3_bold"
-        android:hint="Username"
-        android:inputType="text"
-        android:paddingStart="15dp"
-        android:elevation="5dp"
-        android:textColor="@color/tagline"
-        android:textColorHint="@color/white"
-        android:textSize="20sp"
-        tools:ignore="MissingConstraints"
-        android:layout_marginVertical="20dp"/>
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center_vertical">
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:letterSpacing="0.08"
+            android:paddingStart="30dp"
+            android:text="@string/enter_username"
+            android:textSize="20sp"
+            tools:ignore="MissingConstraints,RtlSymmetry" />
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/login_letMeIn_btn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:background="@drawable/std_btn"
-        android:text="Let me In"
-        android:textSize="16sp"
-        tools:ignore="MissingConstraints"
-        android:layout_marginHorizontal="60dp"/>
 
-    <ProgressBar
-        android:id="@+id/login_progress_bar"
-        android:layout_width="32dp"
-        android:layout_height="32dp"
-        android:layout_gravity="center"
-        android:indeterminateTint="@color/teal_200"
-        android:layout_marginVertical="20dp"
-        tools:ignore="MissingConstraints" />
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:elevation="20dp"
+            android:background="@drawable/input_border"
+            android:paddingHorizontal="5dp"
+            android:paddingVertical="2dp"
+            android:layout_marginHorizontal="30dp"
+            android:layout_marginVertical="20dp">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/login_username"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:hint="@string/username"
+                android:textSize="20sp"
+                android:paddingStart="15dp"
+                tools:ignore="MissingConstraints,RtlSymmetry,VisualLintTextFieldSize"
+                android:background="?attr/selectableItemBackgroundBorderless"/>
+        </com.google.android.material.textfield.TextInputLayout>
 
-</LinearLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/login_letMeIn_btn"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            style="@style/TextAppearance.AppCompat.Widget.Button.Inverse"
+            android:text="@string/let_me_in"
+            android:textSize="16sp"
+            app:cornerRadius="10dp"
+            tools:ignore="MissingConstraints,VisualLintButtonSize"
+            android:layout_marginHorizontal="60dp"/>
+    </LinearLayout>
+
+<!--    <com.google.android.material.progressindicator.LinearProgressIndicator-->
+<!--        android:id="@+id/loginUsernameProgressBar"-->
+<!--        android:layout_width="200dp"-->
+<!--        android:layoutDirection="ltr"-->
+<!--        app:indicatorDirectionLinear="startToEnd"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_gravity="center_horizontal"-->
+<!--        app:trackColor="@color/material_blue_grey_90"-->
+<!--        tools:ignore="MissingConstraints"-->
+<!--        style="@style/Widget.MaterialComponents.LinearProgressIndicator"-->
+<!--        android:layout_marginVertical="20dp"-->
+<!--        app:progress="0.5"/>-->
+
+<!--    <ProgressBar-->
+<!--        android:id="@+id/loginUsernameProgressBar"-->
+<!--        android:layout_width="200dp"-->
+<!--        android:layoutDirection="ltr"-->
+<!--        app:indicatorDirectionLinear="startToEnd"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_gravity="center_horizontal"-->
+<!--        app:trackColor="@color/material_blue_grey_90"-->
+<!--        tools:ignore="MissingConstraints"-->
+<!--        style="@style/Widget.MaterialComponents.LinearProgressIndicator"-->
+<!--        android:layout_marginVertical="20dp"/>-->
+</RelativeLayout>

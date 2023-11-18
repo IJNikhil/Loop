@@ -11,11 +11,7 @@ public class ChatroomModel {
     String lastMsgSenderId;
     String lastMsg;
 
-
-
-    public ChatroomModel() {
-
-    }
+    public ChatroomModel() {}
 
     public ChatroomModel(String chatroomId, List<String> userId, Timestamp lastMsgTimeStamp, String lastMsgSenderId) {
         this.chatroomId = chatroomId;

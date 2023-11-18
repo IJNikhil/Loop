@@ -1,76 +1,109 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/frag_bg"
-    android:orientation="vertical"
-    android:gravity="center_vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".LoginOtpActivity">
-
-    <TextView
-        android:id="@+id/number_textview"
+    <com.google.android.material.progressindicator.LinearProgressIndicator
+        android:id="@+id/loginOtpProgressBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical"
-        android:fontFamily="@font/source_sans3_bold"
-        android:letterSpacing="0.08"
-        android:layout_marginHorizontal="30dp"
-        android:text="@string/enter_otp"
-        android:textColor="@color/white"
-        android:textSize="16sp"
-        tools:ignore="RtlSymmetry" />
+        android:indeterminate="true"
+        android:indeterminateDuration="3000"
+        app:indicatorColor="@color/main_blue_color"
+        app:trackThickness="5dp" />
 
-    <EditText
-        android:id="@+id/login_otp"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_marginHorizontal="30dp"
-        android:background="@drawable/input_border"
-        android:fontFamily="@font/source_sans3_bold"
-        android:hint="@string/otp"
-        android:inputType="number"
-        android:maxLength="6"
-        android:layout_marginVertical="20dp"
-        android:paddingStart="15dp"
-        android:textColor="@color/white"
-        android:textColorHint="@color/white"
-        android:textSize="20sp"
-        tools:ignore="RtlSymmetry,VisualLintTextFieldSize"
-        android:importantForAutofill="no" />
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center_vertical">
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/number_textview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal|center_vertical"
+            android:letterSpacing="0.08"
+            android:text="@string/enter_otp"
+            android:textSize="20sp"
+            tools:ignore="RtlSymmetry" />
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/login_next_btn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="60dp"
-        android:layout_marginVertical="20dp"
-        android:background="@drawable/std_btn"
-        android:gravity="center"
-        android:text="@string/verify_otp"
-        android:textSize="16sp"
-        tools:ignore="VisualLintButtonSize" />
 
-    <TextView
-        android:id="@+id/resend_otp_textview"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical"
-        android:fontFamily="@font/source_sans3_bold"
-        android:gravity="center"
-        android:letterSpacing="0.08"
-        android:text="@string/resend_otp_in_30_seconds"
-        android:textColor="@color/white"
-        android:textColorHint="@color/material_blue_grey_80"
-        android:textSize="12sp" />
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="100dp"
+            android:layout_marginTop="20dp">
 
-    <ProgressBar
-        android:id="@+id/login_progress_bar"
-        android:layout_width="32dp"
-        android:layout_height="32dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="15dp"
-        android:indeterminateTint="@color/teal_200" />
+            <EditText
+                android:id="@+id/login_otp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:hint="@string/otp"
+                android:inputType="number"
+                android:maxLength="6"
+                android:paddingStart="15dp"
+                android:textColor="@color/black"
+                android:textColorHint="#A1887F"
+                android:textSize="20sp"
+                tools:ignore="RtlSymmetry,VisualLintTextFieldSize"
+                android:autofillHints="" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-</LinearLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/login_next_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            style="@style/TextAppearance.AppCompat.Widget.Button.Inverse"
+            android:text="@string/verify_otp"
+            android:textSize="16sp"
+            app:cornerRadius="10dp"
+            android:layout_marginHorizontal="100dp"
+            tools:ignore="VisualLintButtonSize" />
+
+        <!-- Auto layout, variables, and unit scale are not yet supported -->
+        <TextView
+            android:id="@+id/resend_otp_textview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:letterSpacing="0.08"
+            android:layout_marginTop="5dp"
+            android:text="@string/resend_otp_in_30_seconds"
+            android:textColorHint="@color/material_blue_grey_80"
+            android:textSize="12sp" />
+    </LinearLayout>
+
+
+
+<!--    <com.google.android.material.progressindicator.LinearProgressIndicator-->
+<!--        android:id="@+id/loginOtpProgressBar"-->
+<!--        android:layout_width="200dp"-->
+<!--        android:layoutDirection="ltr"-->
+<!--        app:indicatorDirectionLinear="startToEnd"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_gravity="center_horizontal"-->
+<!--        app:trackColor="@color/material_blue_grey_90"-->
+<!--        tools:ignore="MissingConstraints"-->
+<!--        style="@style/Widget.MaterialComponents.LinearProgressIndicator"-->
+<!--        android:layout_marginVertical="20dp"-->
+<!--        app:progress="0.5"/>-->
+<!--    <ProgressBar-->
+<!--        android:id="@+id/loginOtpProgressBar"-->
+<!--        android:layout_width="200dp"-->
+<!--        android:layoutDirection="ltr"-->
+<!--        app:indicatorDirectionLinear="startToEnd"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_gravity="center_horizontal"-->
+<!--        app:trackColor="@color/material_blue_grey_90"-->
+<!--        tools:ignore="MissingConstraints"-->
+<!--        style="@style/Widget.MaterialComponents.LinearProgressIndicator"-->
+<!--        android:layout_marginVertical="20dp"/>-->
+
+</RelativeLayout>

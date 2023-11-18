@@ -3,68 +3,117 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="@color/frag_bg"
     android:layout_height="match_parent"
-    android:paddingVertical="15dp"
-    android:paddingHorizontal="20dp"
+    android:paddingVertical="8dp"
+    android:paddingHorizontal="10dp"
     tools:context=".SearchUserActivity">
 
+    <LinearLayout
+        android:id="@+id/search_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:ignore="MissingConstraints">
+
         <RelativeLayout
-            android:id="@+id/search_layout"
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            tools:ignore="UselessParent"
+            android:layout_margin="10dp"
             android:background="@drawable/input_border"
-            android:backgroundTint="@color/frag_bg_light"
-            android:layout_marginBottom="10dp">
+            tools:ignore="UselessParent">
 
             <ImageView
+                android:id="@+id/back_btn"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:layout_centerVertical="true"
-                android:id="@+id/back_btn"
-                android:src="@drawable/back_arrow_white"
-                android:layout_marginTop="10dp"
                 android:layout_marginStart="15dp"
-                android:importantForAccessibility="no" />
-
-            <EditText
-                android:id="@+id/search_username_input"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
                 android:layout_marginTop="10dp"
-                android:layout_marginEnd="10dp"
+                android:importantForAccessibility="no"
+                android:src="@drawable/back_arrow_white" />
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/search_username_input"
+                android:layout_width="255dp"
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="10dp"
                 android:layout_toEndOf="@+id/back_btn"
-                android:background="?attr/selectableItemBackgroundBorderless"
-                android:hint="Search"
-                android:minHeight="48dp"
+                style="@style/Widget.Material3.TextInputEditText.OutlinedBox"
+                android:gravity="center_vertical"
                 android:paddingStart="10dp"
-                android:textColorHint="@color/teal_200"
-                android:textColor="@color/white"
-                android:inputType="text"
-                tools:ignore="RtlSymmetry" />
+                android:hint="@string/search"
+                android:textSize="20sp"
+                tools:ignore="RtlSymmetry,TextSizeCheck" />
 
             <ImageView
                 android:id="@+id/search_user_btn"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_centerVertical="true"
-                android:src="@drawable/icon_search"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_alignParentEnd="true"
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="15dp"
-                android:layout_alignParentEnd="true"
-                android:importantForAccessibility="no" />
+                android:contentDescription="TODO"
+                android:src="@drawable/icon_search"
+                tools:ignore="ContentDescription,HardcodedText" />
 
         </RelativeLayout>
+    </LinearLayout>
 
+
+
+
+<!--    <com.google.android.material.textfield.TextInputLayout-->
+<!--                style="@style/Widget.Material3.TextInputEditText.OutlinedBox"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:id="@+id/editTxt">-->
+<!--        <RelativeLayout-->
+<!--                    android:id="@+id/search_layout"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="match_parent"-->
+<!--                    tools:ignore="UselessParent"-->
+<!--                    android:background="@drawable/input_border">-->
+<!--            <ImageView-->
+<!--                    android:layout_width="30dp"-->
+<!--                    android:layout_height="30dp"-->
+<!--                    android:layout_centerVertical="true"-->
+<!--                    android:id="@+id/back_btn"-->
+<!--                    android:src="@drawable/back_arrow_white"-->
+<!--                    android:layout_marginTop="10dp"-->
+<!--                    android:layout_marginStart="15dp"-->
+<!--                    android:importantForAccessibility="no"-->
+<!--                    app:tint="@color/black" />-->
+
+<!--            <com.google.android.material.textfield.TextInputEditText-->
+<!--                    android:id="@+id/search_username_input"-->
+<!--                    android:layout_width="200dp"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_centerVertical="true"-->
+<!--                    android:layout_toEndOf="@+id/back_btn"-->
+<!--                    android:background="?attr/selectableItemBackgroundBorderless"-->
+<!--                    android:hint="Search"-->
+<!--                    android:minHeight="48dp"-->
+<!--                    android:paddingStart="10dp"-->
+<!--                    android:layout_toLeftOf="@+id/search_user_btn"-->
+<!--                    android:inputType="text" />-->
+<!--            <ImageView-->
+<!--                    android:id="@+id/search_user_btn"-->
+<!--                    android:layout_width="30dp"-->
+<!--                    android:layout_height="30dp"-->
+<!--                    android:layout_centerVertical="true"-->
+<!--                    android:src="@drawable/icon_search"-->
+<!--                    android:layout_toRightOf="@+id/search_username_input"-->
+<!--                    android:layout_marginTop="10dp"-->
+<!--                    android:layout_marginEnd="15dp"-->
+<!--                    android:layout_alignParentEnd="true"-->
+<!--                    android:importantForAccessibility="no" />-->
+<!--        </RelativeLayout>-->
+<!--    </com.google.android.material.textfield.TextInputLayout>-->
 
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/search_layout"
         android:padding="5dp"
-        android:id="@+id/search_user_recycler_view"
-        />
+        android:id="@+id/search_user_recycler_view" />
 
 </RelativeLayout>

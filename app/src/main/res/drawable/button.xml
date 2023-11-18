@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+ <!-- drawable/button.xml -->
+<vector
+xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:aapt="http://schemas.android.com/aapt"
+android:width="94dp"
+android:height="45dp"
+android:viewportWidth="94"
+android:viewportHeight="45"
+    >
+<group>
+    <clip-path
+        android:pathData="M5 0H89C91.7614 0 94 2.23858 94 5V40C94 42.7614 91.7614 45 89 45H5C2.23858 45 0 42.7614 0 40V5C0 2.23858 2.23858 0 5 0Z"
+        />
+    <path
+        android:pathData="M0 0V45H94V0"
+        android:fillColor="#11AB61"
+        />
+    <path
+        android:pathData="M5 0H89C91.7614 0 94 2.23858 94 5V40C94 42.7614 91.7614 45 89 45H5C2.23858 45 0 42.7614 0 40V5C0 2.23858 2.23858 0 5 0Z"
+        android:strokeWidth="2"
+        android:strokeColor="#87955B"
+        />
+</group>
+</vector>
