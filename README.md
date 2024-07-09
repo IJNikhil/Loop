@@ -1,8 +1,7 @@
-```markdown
 # Project: Loop
 
 ## Purpose
-Loop is a real-time communication Android application developed in Java using Firebase. It aims to provide secure and user-friendly interface for seamless communication between users.
+Loop is a real-time communication Android application developed in Java using Firebase. It aims to provide a secure and user-friendly interface for seamless communication between users.
 
 ## Project Overview
 
@@ -21,13 +20,13 @@ Loop is a real-time communication Android application developed in Java using Fi
 - **User Profile Management**:
   - Users can modify their username and profile photo.
 
-### Installation Steps
+## Installation Steps
 
-1. **Clone the Repository**
-   ```bash
-   git clone https://github.com/your-username/loop.git
-   cd loop/
-   ```
+### 1. Clone the Repository
+```bash
+git clone https://github.com/your-username/loop.git
+cd loop/
+
 
 2. **Set Up Firebase Project**
    - Create a new Firebase project at [Firebase Console](https://console.firebase.google.com/).
