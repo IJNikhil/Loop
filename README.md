@@ -24,7 +24,7 @@ Loop is a real-time communication Android application developed in Java using Fi
 
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/your-username/loop.git
+git clone https://github.com/IJNikhil/Loop.git
 cd loop/
 ```
 
