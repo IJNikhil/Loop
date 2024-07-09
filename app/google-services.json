@@ -1,13 +1,13 @@
 {
   "project_info": {
-    "project_number": "583710063521",
-    "project_id": "loop-1ce6e",
-    "storage_bucket": "loop-1ce6e.appspot.com"
+    "project_number": "630156853487",
+    "project_id": "loop-796a4",
+    "storage_bucket": "loop-796a4.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:583710063521:android:39d5747b669048add529e0",
+        "mobilesdk_app_id": "1:630156853487:android:dea144ddff51856e12db1a",
         "android_client_info": {
           "package_name": "com.loop.app"
         }
@@ -15,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyDqp8zr7dxqnBljANEAisuQz-x9sJEeoh0"
+          "current_key": "AIzaSyA76V7MQVIXOhPiN5Iz-skHB8XI6myr5sw"
         }
       ],
       "services": {

@@ -18,18 +18,14 @@ public class LoginPhoneNumberActivity extends AppCompatActivity {
     CountryCodePicker ccp;
     Button sendOtpBtn;
     private LinearProgressIndicator progressBar;
+    View screenView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_phone_number);
 
-        ccp = findViewById(R.id.ccp);
-        phoneInput = findViewById(R.id.login_mobile_number);
-        sendOtpBtn = findViewById(R.id.send_otp_btn);
-        progressBar = findViewById(R.id.loginPhoneProgressBar);
-
-        ccp.registerCarrierNumberEditText(phoneInput);
+        initViews();
 
         progressBar.setVisibility(View.GONE);
 
@@ -38,9 +34,20 @@ public class LoginPhoneNumberActivity extends AppCompatActivity {
                 phoneInput.setError("Phone number not valid");
                 return;
             }
+
             Intent intent = new Intent(LoginPhoneNumberActivity.this, LoginOtpActivity.class);
+//            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
             intent.putExtra("phone", ccp.getFullNumberWithPlus());
             startActivity(intent);
         });
+    }
+
+    private void initViews() {
+        ccp = findViewById(R.id.ccp);
+        phoneInput = findViewById(R.id.login_mobile_number);
+        sendOtpBtn = findViewById(R.id.send_otp_btn);
+        progressBar = findViewById(R.id.loginPhoneProgressBar);
+
+        ccp.registerCarrierNumberEditText(phoneInput);
     }
 }

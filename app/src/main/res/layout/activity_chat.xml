@@ -58,36 +58,41 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/toolbar"
         android:paddingHorizontal="10dp"
+        android:layout_marginTop="2dp"
         android:layout_above="@+id/bottom_layout"/>
-
 
     <LinearLayout
         android:id="@+id/bottom_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:gravity="bottom"
+        android:gravity="bottom|center"
         android:orientation="horizontal"
         android:weightSum="1"
         android:layout_margin="10dp">
-
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Start typing..."
+            android:inputType="textEnableTextConversionSuggestions"
+            android:textSize="16sp"
+            android:layout_weight="1"
+            android:layout_marginEnd="5dp">
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/chat_msg_input"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:hint="Write message here"
-                android:background="@drawable/input_border"
-                android:minHeight="48dp"
-                android:layout_marginEnd="5dp"
-                android:paddingStart="20dp"
-                tools:ignore="VisualLintTextFieldSize" />
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:paddingStart="20dp"/>
+        </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/msg_send_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:fabSize="normal"
+            app:fabSize="auto"
+            android:layout_marginBottom="4dp"
+            app:backgroundTintMode="screen"
+            android:backgroundTint="@color/green"
             android:src="@drawable/send_icon"
             tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
     </LinearLayout>

@@ -3,7 +3,7 @@ package com.loop.app.model;
 import com.google.firebase.Timestamp;
 
 public class UserModel {
-    private String phone;
+    private String phoneNumber;
     private String username;
     private Timestamp createdTimeStamp;
     private String userId;
@@ -12,19 +12,19 @@ public class UserModel {
     public UserModel() {
     }
 
-    public UserModel(String phone, String username, Timestamp createdTimeStamp, String userId) {
-        this.phone = phone;
+    public UserModel(String phoneNumber, String username, Timestamp createdTimeStamp, String userId) {
+        this.phoneNumber = phoneNumber;
         this.username = username;
         this.createdTimeStamp = createdTimeStamp;
         this.userId = userId;
     }
 
-    public String getPhone() {
-        return phone;
+    public String getPhoneNumber() {
+        return phoneNumber;
     }
 
-    public void setPhone(String phone) {
-        this.phone = phone;
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 
     public String getUsername() {

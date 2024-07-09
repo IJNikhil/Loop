@@ -14,6 +14,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.loop.app.ChatActivity;
 import com.loop.app.R;
 import com.loop.app.model.ChatroomModel;
@@ -31,12 +33,15 @@ public class RecentChatRecyclerAdapter extends FirestoreRecyclerAdapter<Chatroom
 
     @Override
     protected void onBindViewHolder(@NonNull ChatroomModelViewHolder holder, int position, @NonNull ChatroomModel model) {
-        FirebaseUtil.getOtherUserFromChatroom(model.getUserId()).get().addOnCompleteListener(task -> {
-            if (task.isSuccessful()) {
-                boolean lastMessageSentByMe = model.getLastMsgSenderId().equals(FirebaseUtil.currentUserId());
+        // Store the task for retrieving the other user
+        Task<DocumentSnapshot> otherUserTask = FirebaseUtil.getOtherUserFromChatroom(model.getUserId()).get();
 
+        // Set a listener to handle the task completion
+        otherUserTask.addOnCompleteListener(task -> {
+            if (task.isSuccessful()) {
                 UserModel otherUserModel = task.getResult().toObject(UserModel.class);
 
+                // Update UI elements once the user data is available
                 FirebaseUtil.getOtherProfilePicStorageReference(otherUserModel.getUserId()).getDownloadUrl()
                         .addOnCompleteListener(t -> {
                             if (t.isSuccessful()) {
@@ -46,12 +51,7 @@ public class RecentChatRecyclerAdapter extends FirestoreRecyclerAdapter<Chatroom
                         });
 
                 holder.usernameText.setText(otherUserModel.getUsername());
-                if (lastMessageSentByMe) {
-                    holder.lastMessageText.setText("You: " + model.getLastMsg());
-                } else {
-                    holder.lastMessageText.setText(model.getLastMsg());
-                }
-                holder.lastMessageTime.setText(FirebaseUtil.timestampToString(model.getLastMsgTimeStamp()));
+                holder.lastMessageTime.setText(FirebaseUtil.timestampToString(otherUserModel.getCreatedTimeStamp()));
 
                 holder.itemView.setOnClickListener(view -> {
                     Intent intent = new Intent(context, ChatActivity.class);
@@ -61,7 +61,6 @@ public class RecentChatRecyclerAdapter extends FirestoreRecyclerAdapter<Chatroom
                     context.startActivity(intent);
 
                 });
-
             }
         });
     }

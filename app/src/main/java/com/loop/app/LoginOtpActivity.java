@@ -4,17 +4,22 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ProgressBar;
-import android.widget.TextView;
+import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.android.material.button.MaterialButton;
 import com.google.android.material.progressindicator.LinearProgressIndicator;
+import com.google.android.material.textview.MaterialTextView;
 import com.google.firebase.FirebaseException;
+import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseAuthException;
+import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
 import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthOptions;
 import com.google.firebase.auth.PhoneAuthProvider;
@@ -30,32 +35,25 @@ public class LoginOtpActivity extends AppCompatActivity {
     String phoneNumber, verificationCode;
     Long timeoutSeconds = 30L;
     EditText otpInput;
-    private LinearProgressIndicator progressBar;
-    TextView resendOtpTextView, displayTextView;
-    Button nextBtn;
+    ImageView backBtn;
+    LinearProgressIndicator progressBar;
+    MaterialTextView resendOtpTextView, displayTextView;
+    MaterialButton nextBtn;
     View sView;
     PhoneAuthProvider.ForceResendingToken resendingToken;
     FirebaseAuth mAuth = FirebaseAuth.getInstance();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login_otp);
-
         phoneNumber = Objects.requireNonNull(getIntent().getExtras()).getString("phone");
 
-        // Initialize the otpInput EditText.
-        otpInput = findViewById(R.id.login_otp);
-        nextBtn = findViewById(R.id.login_next_btn);
-        resendOtpTextView = findViewById(R.id.resend_otp_textview);
-        progressBar = findViewById(R.id.loginOtpProgressBar);
-        displayTextView = findViewById(R.id.number_textview);
+        setContentView(R.layout.activity_login_otp);
+        initializeViews();
 
         setInProgress(false);
-
-        sView = getWindow().getDecorView().getRootView();
-        AndroidUtil.showToast(sView, phoneNumber);
-
         sendOtp(phoneNumber, false);
+
+        backBtn.setOnClickListener(view -> onBackPressed());
 
         nextBtn.setOnClickListener(v -> {
             String enteredOtp = otpInput.getText().toString();
@@ -71,12 +69,10 @@ public class LoginOtpActivity extends AppCompatActivity {
         resendOtpTextView.setOnClickListener(view -> sendOtp(phoneNumber, true));
     }
 
-    public void sendOtp(String phoneNumber, boolean isResend) {
+    public void sendOtp(String phoneNumber, Boolean isResend) {
         // Set the progress bar to indicate that the OTP is being sent.
-        resendOtpTextView.setText("OTP is Sending..");
         resendOtpTextView.setVisibility(View.GONE);
         setInProgress(true);
-
         nextBtn.setVisibility(View.INVISIBLE);
 
         displayTextView.setText("Please wait while OTP is sending on entered number " + phoneNumber);
@@ -122,7 +118,6 @@ public class LoginOtpActivity extends AppCompatActivity {
                     }
                 });
 
-
         // If the OTP is being resent, use the force resending token. Otherwise, don't use it.
         if (isResend) {
             PhoneAuthProvider.verifyPhoneNumber(builder.setForceResendingToken(resendingToken).build());
@@ -130,26 +125,33 @@ public class LoginOtpActivity extends AppCompatActivity {
             PhoneAuthProvider.verifyPhoneNumber(builder.build());
         }
     }
-    void setInProgress(boolean inProgress) {
-        if (inProgress) {
-            progressBar.setVisibility(View.VISIBLE);
-            nextBtn.setVisibility(View.GONE);
-        } else {
-            progressBar.setVisibility(View.GONE);
-            nextBtn.setVisibility(View.VISIBLE);
-        }
-    }
-    void signIn(PhoneAuthCredential phoneAuthCredential) {
+
+//    void signIn(PhoneAuthCredential phoneAuthCredential) {
+//        setInProgress(true);
+//        mAuth.signInWithCredential(phoneAuthCredential).addOnCompleteListener(task -> {
+//            setInProgress(false);
+//            if (task.isSuccessful()) {
+//                Intent intent = new Intent(LoginOtpActivity.this, LoginUserNameActivity.class);
+//                intent.putExtra("phone", phoneNumber);
+//                startActivity(intent);
+//            } else {
+//                View view = getWindow().getDecorView().getRootView();
+//                AndroidUtil.showToast(view, "OTP Verification Failed");
+//            }
+//        });
+//    }
+
+
+        void signIn(PhoneAuthCredential phoneAuthCredential) {
         setInProgress(true);
         mAuth.signInWithCredential(phoneAuthCredential).addOnCompleteListener(task -> {
             setInProgress(false);
             if (task.isSuccessful()) {
-                Intent intent = new Intent(LoginOtpActivity.this, LoginUserNameActivity.class);
-                intent.putExtra("phone", phoneNumber);
-                startActivity(intent);
+            Intent intent = new Intent(LoginOtpActivity.this, LoginUserNameActivity.class);
+            intent.putExtra("phone", phoneNumber);
+            startActivity(intent);
             } else {
-                View view = getWindow().getDecorView().getRootView();
-                AndroidUtil.showToast(view, "OTP Verification Failed");
+                AndroidUtil.showToast(sView, "OTP Verifiaction Failed!");
             }
         });
     }
@@ -175,6 +177,24 @@ public class LoginOtpActivity extends AppCompatActivity {
             }
         }, 0, 1000);
     }
+    void setInProgress(boolean inProgress) {
+        if (inProgress) {
+            progressBar.setVisibility(View.VISIBLE);
+            nextBtn.setVisibility(View.GONE);
+        } else {
+            progressBar.setVisibility(View.GONE);
+            nextBtn.setVisibility(View.VISIBLE);
+        }
+    }
+    private void initializeViews() {
+        backBtn = findViewById(R.id.backbtn);
+        otpInput = findViewById(R.id.login_otp);
+        nextBtn = findViewById(R.id.login_next_btn);
+        resendOtpTextView = findViewById(R.id.resend_otp_textview);
+        progressBar = findViewById(R.id.loginOtpProgressBar);
+        displayTextView = findViewById(R.id.number_textview);
 
-
+        sView = getWindow().getDecorView().getRootView();
+        AndroidUtil.showToast(sView, phoneNumber);
+    }
 }

@@ -6,18 +6,17 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.ProgressBar;
-import android.widget.TextView;
 
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.material.button.MaterialButton;
 import com.google.android.material.progressindicator.LinearProgressIndicator;
+import com.google.android.material.textview.MaterialTextView;
 import com.google.firebase.messaging.FirebaseMessaging;
 import com.loop.app.model.UserModel;
 import com.loop.app.utils.AndroidUtil;
@@ -29,17 +28,12 @@ public class ProfileActivity extends AppCompatActivity {
     // Declare the views
     ImageView profilePic, backBtn;
     EditText usernameInput;
-    TextView phoneInput;
-    Button updateProfileBtn;
+    MaterialTextView userPhoneNumberTextView;
+    MaterialButton updateProfileBtn, logoutBtn;
     private LinearProgressIndicator progressBar;
-    TextView logoutBtn;
-
     // Declare the UserModel object
     UserModel currentUserModel;
     Uri selectedImageUri;
-
-
-    // Declare the ActivityResultLauncher
     ActivityResultLauncher<Intent> imagePickLauncher;
     View screenView;
 
@@ -52,12 +46,12 @@ public class ProfileActivity extends AppCompatActivity {
         setContentView(R.layout.activity_profile);
 
         profilePic = findViewById(R.id.profile_image_view);
+        backBtn = findViewById(R.id.back_btn);
         usernameInput = findViewById(R.id.profile_username);
-        phoneInput = findViewById(R.id.profile_phone);
+        userPhoneNumberTextView = findViewById(R.id.profile_phone);
         updateProfileBtn = findViewById(R.id.profile_update_btn);
         progressBar = findViewById(R.id.profileProgressBar);
         logoutBtn = findViewById(R.id.logout_btn);
-        backBtn = findViewById(R.id.back_btn);
 
         screenView = getWindow().getDecorView().getRootView();
 
@@ -95,7 +89,6 @@ public class ProfileActivity extends AppCompatActivity {
 
                         // Set the click listener for the profilePic view
         profilePic.setOnClickListener(v -> {
-            // Start the default system image picker activity
             Intent intent = new Intent(Intent.ACTION_PICK,
                     MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
             imagePickLauncher.launch(intent);
@@ -127,18 +120,19 @@ public class ProfileActivity extends AppCompatActivity {
         setInProgress(true);
 
         if (selectedImageUri != null) {
+            // Handle image upload
             FirebaseUtil.getCurrentProfilePicStorageReference().putFile(selectedImageUri).addOnCompleteListener(task -> {
                 if (task.isSuccessful()) {
-                    // The image was uploaded successfully
+                    // Image uploaded successfully, proceed to update user data
                     updateToFirestore();
                 } else {
-                    // The image upload failed
+                    // Image upload failed, notify user and set inProgress to false
                     setInProgress(false);
                     AndroidUtil.showToast(screenView, "Image upload failed");
                 }
             });
         } else {
-            // The user did not select an image
+            // No image selected, proceed directly to update user data
             updateToFirestore();
         }
     }
@@ -159,22 +153,42 @@ public class ProfileActivity extends AppCompatActivity {
     void getUserData() {
         setInProgress(true);
 
+        // Retrieve profile picture URL from Firebase Storage
         FirebaseUtil.getCurrentProfilePicStorageReference().getDownloadUrl()
                 .addOnCompleteListener(task -> {
                     if (task.isSuccessful()) {
                         Uri uri = task.getResult();
-                        AndroidUtil.setProfilePic(getApplicationContext(), uri, profilePic);
-
+                        // Check if URL is null
+                        if (uri != null) {
+                            // Download and set profile picture
+                            AndroidUtil.setProfilePic(getApplicationContext(), uri, profilePic);
+                        } else {
+                            // Profile picture not found, notify user
+                            AndroidUtil.showToast(screenView, "Profile picture not found");
+                        }
+                    } else {
+                        // Failed to retrieve profile picture URL
+                        setInProgress(false);
+//                        AndroidUtil.showToast(screenView, "Failed to get profile picture: " + task.getException().getMessage());
                     }
-                } );
-        FirebaseUtil.currentUserDetails().get().addOnCompleteListener(task -> {
-            setInProgress(false);
-            currentUserModel = task.getResult().toObject(UserModel.class);
-            usernameInput.setText(currentUserModel.getUsername());
-            phoneInput.setText(currentUserModel.getPhone());
-        } );
-    }
 
+                });
+
+        // Retrieve user data from Firestore
+        FirebaseUtil.currentUserDetails().get().addOnCompleteListener(task2 -> {
+            if (task2.isSuccessful()) {
+                // Data fetched successfully, update UI and set inProgress to false
+                currentUserModel = task2.getResult().toObject(UserModel.class);
+                usernameInput.setText(currentUserModel.getUsername());
+                userPhoneNumberTextView.setText(currentUserModel.getPhoneNumber());
+                setInProgress(false);
+            } else {
+                // Data fetching failed, notify user and set inProgress to false
+                setInProgress(false);
+                AndroidUtil.showToast(screenView, "Failed to get user data: " + task2.getException().getMessage());
+            }
+        });
+    }
 
     void setInProgress(boolean inProgress) {
         if (inProgress) {

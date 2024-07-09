@@ -42,6 +42,7 @@
                 android:paddingStart="10dp"
                 android:hint="@string/search"
                 android:textSize="20sp"
+                android:maxLength="15"
                 tools:ignore="RtlSymmetry,TextSizeCheck" />
 
             <ImageView
@@ -57,57 +58,6 @@
 
         </RelativeLayout>
     </LinearLayout>
-
-
-
-
-<!--    <com.google.android.material.textfield.TextInputLayout-->
-<!--                style="@style/Widget.Material3.TextInputEditText.OutlinedBox"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:id="@+id/editTxt">-->
-<!--        <RelativeLayout-->
-<!--                    android:id="@+id/search_layout"-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="match_parent"-->
-<!--                    tools:ignore="UselessParent"-->
-<!--                    android:background="@drawable/input_border">-->
-<!--            <ImageView-->
-<!--                    android:layout_width="30dp"-->
-<!--                    android:layout_height="30dp"-->
-<!--                    android:layout_centerVertical="true"-->
-<!--                    android:id="@+id/back_btn"-->
-<!--                    android:src="@drawable/back_arrow_white"-->
-<!--                    android:layout_marginTop="10dp"-->
-<!--                    android:layout_marginStart="15dp"-->
-<!--                    android:importantForAccessibility="no"-->
-<!--                    app:tint="@color/black" />-->
-
-<!--            <com.google.android.material.textfield.TextInputEditText-->
-<!--                    android:id="@+id/search_username_input"-->
-<!--                    android:layout_width="200dp"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:layout_centerVertical="true"-->
-<!--                    android:layout_toEndOf="@+id/back_btn"-->
-<!--                    android:background="?attr/selectableItemBackgroundBorderless"-->
-<!--                    android:hint="Search"-->
-<!--                    android:minHeight="48dp"-->
-<!--                    android:paddingStart="10dp"-->
-<!--                    android:layout_toLeftOf="@+id/search_user_btn"-->
-<!--                    android:inputType="text" />-->
-<!--            <ImageView-->
-<!--                    android:id="@+id/search_user_btn"-->
-<!--                    android:layout_width="30dp"-->
-<!--                    android:layout_height="30dp"-->
-<!--                    android:layout_centerVertical="true"-->
-<!--                    android:src="@drawable/icon_search"-->
-<!--                    android:layout_toRightOf="@+id/search_username_input"-->
-<!--                    android:layout_marginTop="10dp"-->
-<!--                    android:layout_marginEnd="15dp"-->
-<!--                    android:layout_alignParentEnd="true"-->
-<!--                    android:importantForAccessibility="no" />-->
-<!--        </RelativeLayout>-->
-<!--    </com.google.android.material.textfield.TextInputLayout>-->
 
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"

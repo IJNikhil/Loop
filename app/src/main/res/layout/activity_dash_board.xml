@@ -4,44 +4,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="10dp"
     tools:context=".DashBoard">
 
-    <LinearLayout
+    <RelativeLayout
+        android:padding="10dp"
         android:id="@+id/main_layout_toolbar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         tools:ignore="MissingConstraints">
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_margin="10dp"
-            android:background="@drawable/input_border"
-            tools:ignore="UselessParent">
-
-            <ImageView
-                android:id="@+id/search_main_icon"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_centerVertical="true"
-                android:layout_marginStart="15dp"
-                android:layout_marginTop="10dp"
-                android:importantForAccessibility="no"
-                android:src="@drawable/icon_search" />
-
-            <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/search_main_btn"
-                android:layout_width="255dp"
-                android:layout_height="match_parent"
-                android:layout_marginHorizontal="10dp"
-                android:layout_toEndOf="@+id/search_main_icon"
-                style="@style/Widget.Material3.SearchBar.Outlined"
-                android:gravity="center_vertical"
-                android:paddingStart="10dp"
-                android:text="@string/search"
-                android:textSize="20sp"
-                tools:ignore="RtlSymmetry,TextSizeCheck" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Loop"
+        android:textSize="22sp"
+        android:layout_marginHorizontal="20dp"
+        style="@style/Widget.MaterialComponents.TextView"
+        android:layout_centerVertical="true"/>
 
             <ImageView
                 android:id="@+id/main_profile_btn"
@@ -52,17 +30,37 @@
                 android:layout_marginEnd="15dp"
                 android:contentDescription="TODO"
                 android:src="@drawable/person_filled"
+                android:layout_centerVertical="true"
+                android:background="@drawable/profilebg"
+                style="@style/Widget.Material3.Chip.Input.Icon.Elevated"
                 tools:ignore="ContentDescription,HardcodedText" />
+    </RelativeLayout>
 
-        </RelativeLayout>
-    </LinearLayout>
+    <com.google.android.material.divider.MaterialDivider
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/main_layout_toolbar"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/main_layout_toolbar"
-        android:padding="5dp"
-        android:id="@+id/recent_user_recycler_view"
-        />
+        android:layout_below="@+id/divider"
+        android:padding="15dp"
+        android:id="@+id/recent_user_recycler_view" />
+
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:id="@+id/search_main_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_margin="10dp"
+        style="@style/Widget.Material3.ExtendedFloatingActionButton.Icon.Primary"
+        android:elevation="16dp"
+        android:backgroundTint="@color/green"
+        app:icon="@drawable/icon_search"
+        android:text="Search"
+        app:extendStrategy="auto"/>
 
 </RelativeLayout>

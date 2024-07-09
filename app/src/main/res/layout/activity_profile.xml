@@ -22,93 +22,63 @@
         android:src="@drawable/back_arrow_white"
         android:layout_marginTop="15dp"
         android:layout_marginStart="15dp"
-        android:importantForAccessibility="no"
-        app:tint="@color/black" />
+        android:importantForAccessibility="no"/>
 
-    <LinearLayout
+    <com.google.android.material.button.MaterialButton
+        style="@style/Widget.Material3.Button.TextButton"
+        android:id="@+id/logout_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="Logout"
+        android:layout_alignParentEnd="true"/>
+
+    <ImageView
+        android:id="@+id/profile_image_view"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_below="@id/back_btn"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/profilebg"
+        android:src="@drawable/person_filled"
+        android:scaleType="centerCrop"
+        android:layout_marginBottom="40dp"/>
+
+    <EditText
+        android:id="@+id/profile_username"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:gravity="center"
-        android:padding="20dp">
-        <ImageView
-            android:id="@+id/profile_image_view"
-            android:layout_width="120dp"
-            android:layout_height="120dp"
-            android:background="@drawable/profilebg"
-            android:src="@drawable/person_filled"
-            android:scaleType="centerCrop"
-            android:layout_marginBottom="40dp"/>
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/profile_image_view"
+        android:layout_marginHorizontal="60dp"
+        android:layout_centerHorizontal="true"
+        android:paddingHorizontal="20dp"
+        android:hint="Username"
+        android:inputType="text"
+        android:minHeight="48dp"/>
 
-        <EditText
-            style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
-            android:id="@+id/profile_username"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="10dp"
-            android:paddingHorizontal="20dp"
-            android:text="XYZ"
-            android:hint="Username"
-            android:inputType="text"
-            android:minHeight="48dp" />
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/profile_phone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:layout_marginHorizontal="80dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/profile_username"
+        android:text="+000000000000"
+        android:minHeight="48dp"
+        android:textSize="16sp"
+        android:enabled="false"/>
 
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/profile_phone"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_vertical"
-            android:layout_marginHorizontal="30dp"
-            android:text="dtfhgbjml"
-            android:minHeight="48dp"
-            android:textSize="16sp"
-            android:enabled="false"/>
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginTop="20dp"
-            android:gravity="center_horizontal">
-
-            <com.google.android.material.button.MaterialButton
-                style="@style/TextAppearance.MaterialComponents.Button"
-                android:id="@+id/profile_update_btn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Update profile"
-                android:textSize="16sp"
-                android:layout_gravity="center_horizontal"/>
-
-            <com.google.android.material.button.MaterialButton
-                style="@style/Widget.Material3.Button.TextButton"
-                android:id="@+id/logout_btn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Logout"/>
-        </LinearLayout>
-
-    </LinearLayout>
-<!--    <com.google.android.material.progressindicator.LinearProgressIndicator-->
-<!--        android:id="@+id/profileProgressBar"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layoutDirection="ltr"-->
-<!--        app:indicatorDirectionLinear="startToEnd"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_gravity="center_horizontal"-->
-<!--        app:trackColor="@color/material_blue_grey_90"-->
-<!--        tools:ignore="MissingConstraints"-->
-<!--        style="@style/Widget.MaterialComponents.LinearProgressIndicator"-->
-<!--        app:progress="0.5"/>-->
-<!--    <ProgressBar-->
-<!--        android:id="@+id/profileProgressBar"-->
-<!--        android:layout_width="200dp"-->
-<!--        android:layoutDirection="ltr"-->
-<!--        app:indicatorDirectionLinear="startToEnd"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_gravity="center_horizontal"-->
-<!--        app:trackColor="@color/material_blue_grey_90"-->
-<!--        tools:ignore="MissingConstraints"-->
-<!--        style="@style/Widget.MaterialComponents.LinearProgressIndicator"-->
-<!--        android:layout_marginVertical="20dp"/>-->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/profile_update_btn"
+        android:layout_width="150dp"
+        android:layout_height="68dp"
+        android:layout_alignParentBottom="true"
+        android:backgroundTint="@color/green"
+        android:layout_centerHorizontal="true"
+        android:text="UPDATE"
+        android:textSize="20sp"
+        app:cornerRadius="10dp"
+        android:layout_marginBottom="40dp"
+        tools:ignore="MissingConstraints,VisualLintButtonSize" />
 </RelativeLayout>

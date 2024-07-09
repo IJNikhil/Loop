@@ -7,6 +7,9 @@
     <color name="coors_gold">#D4AF37</color>
     <color name="chat_color_receiver">#BDBDBB</color>
     <color name="chat_color_sender">#409709</color>
+    <color name="green">#11AA61</color>
+
+    <color name="shimmer_placeholder">#dddddd</color>
 
 <!--&lt;!&ndash;    Figma&ndash;&gt;-->
 <!--    <color name="colorPrimary">#008577</color>-->

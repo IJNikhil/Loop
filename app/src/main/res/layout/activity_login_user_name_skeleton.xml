@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.google.android.material.progressindicator.LinearProgressIndicator
+        android:id="@+id/loginUsernameProgressBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:indeterminate="true"
+        android:indeterminateDuration="3000"
+        app:indicatorColor="@color/main_blue_color"
+        app:trackThickness="5dp" />
+
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_vertical"
+        android:layout_centerVertical="true">
+        <ImageView
+            android:id="@+id/profile_image_view"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:background="@drawable/profilebg"
+            android:backgroundTint= "@color/shimmer_placeholder"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="ContentDescription,MissingConstraints"
+            android:layout_gravity="center_horizontal"
+            android:scaleType="centerCrop"
+            android:layout_marginBottom="40dp"/>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/name_textview"
+            android:layout_width="250dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:gravity="center_vertical"
+            android:paddingHorizontal="5dp"
+            android:paddingVertical="2dp"
+            android:layout_marginHorizontal="30dp"
+            android:background="@color/shimmer_placeholder"
+            android:letterSpacing="0.08"
+            android:lineSpacingExtra="10dp"
+            tools:ignore="RtlSymmetry" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:elevation="20dp"
+            android:layout_below="@+id/name_textview"
+            android:background="@drawable/input_border"
+            android:backgroundTint="@color/shimmer_placeholder"
+            android:paddingHorizontal="5dp"
+            android:paddingVertical="2dp"
+            android:layout_marginHorizontal="30dp"
+            android:layout_marginVertical="20dp"/>
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/login_letMeIn_btn"
+        android:layout_width="150dp"
+        android:layout_height="68dp"
+        android:layout_alignParentBottom="true"
+        android:backgroundTint="@color/green"
+        android:layout_centerHorizontal="true"
+        android:text="NEXT"
+        android:textSize="20sp"
+        app:cornerRadius="10dp"
+        android:layout_marginBottom="40dp"
+        tools:ignore="MissingConstraints,VisualLintButtonSize" />
+
+</RelativeLayout>
+
+
+

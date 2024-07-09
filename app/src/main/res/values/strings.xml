@@ -17,4 +17,6 @@
     <string name="enter_username">Enter Username</string>
     <string name="let_me_in">Let me in</string>
     <string name="username">Username</string>
+    <string name="LoginPhoneInfoText">Loop will send an SMS message to verify your phone number. Enter your country code and phone number:</string>
+    <string name="EnterOtpText">Enter a 6-digit OTP which is sent to your entered mobile number +000000000000</string>
 </resources>

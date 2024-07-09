@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 import com.google.firebase.firestore.Query;
 import com.google.firebase.messaging.FirebaseMessaging;
 import com.loop.app.adapter.RecentChatRecyclerAdapter;
@@ -21,7 +22,7 @@ import com.loop.app.utils.FirebaseUtil;
 
 public class DashBoard extends AppCompatActivity {
 
-    TextView searchButton;
+    ExtendedFloatingActionButton searchButton;
     ImageView profileBtn;
     RecyclerView recyclerView;
     RecentChatRecyclerAdapter adapter;

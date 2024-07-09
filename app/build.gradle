@@ -4,6 +4,14 @@ plugins {
 }
 
 android {
+    signingConfigs {
+        release {
+        storeFile file('D:\\Nikhil\\GIT\\user\\loopKey\\LoopKey.jks')
+            storePassword '123456'
+            keyAlias 'key0'
+            keyPassword '123456'
+        }
+    }
     namespace 'com.loop.app'
     compileSdk 34
 
@@ -23,6 +31,7 @@ android {
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
             multiDexEnabled true
+            signingConfig signingConfigs.release
         }
     }
     compileOptions {
