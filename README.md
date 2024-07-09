@@ -91,6 +91,3 @@ cd loop/
 
 ## Conclusion
 Loop is designed to offer efficient and secure real-time communication on Android, leveraging Firebase for robust backend services and a responsive user interface. Follow the steps above to set up and run the application on your development environment.
-```
-
-This Markdown file is now properly formatted, providing a clear and structured overview of your project "Loop", including installation steps, required files, setup instructions, dependencies, and project overview. Adjustments can be made based on specific details of your project setup and requirements.
